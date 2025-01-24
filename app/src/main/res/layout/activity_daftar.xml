@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/golden_yellow"
+    tools:context=".activity_daftar">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:padding="20dp"
+        android:text="@string/daftar"
+        android:textAlignment="center"
+        android:textColor="@color/text"
+        android:textSize="40dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/square_rounded"
+        android:layout_marginLeft="-1dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="40dp"
+        android:paddingTop="40dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/labelUsername"
+                android:text="Username"
+                android:textAlignment="textStart"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/text"
+                android:layout_marginTop="30dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text"
+                android:labelFor="@+id/labelUsername"
+                android:id="@+id/UsernameET"
+                android:layout_marginTop="5dp"
+                android:hint="Username"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/labelEmail"
+                android:text="@string/email"
+                android:textAlignment="textStart"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/text"
+                android:layout_marginTop="10dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text"
+                android:labelFor="@+id/labelEmail"
+                android:id="@+id/emailET"
+                android:layout_marginTop="5dp"
+                android:hint="@string/example_example_com"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/labelPassword"
+                android:text="@string/password"
+                android:textAlignment="textStart"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/text"
+                android:layout_marginTop="10dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/passwordET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text"
+                    android:labelFor="@+id/labelPassword"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:layout_marginTop="5dp"
+                    android:paddingEnd="10dp"/>
+
+                <ImageView
+                    android:id="@+id/eyeIcon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_eye"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/labelPasswordConfirm"
+                android:text="@string/confirm_password"
+                android:textAlignment="textStart"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/text"
+                android:layout_marginTop="10dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/confirmPasswordET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text"
+                    android:labelFor="@+id/labelPasswordConfirm"
+                    android:hint="Password Konfirmasi"
+                    android:inputType="textPassword"
+                    android:layout_marginTop="5dp"
+                    android:paddingEnd="10dp"/>
+
+                <ImageView
+                    android:id="@+id/eyeIconConfirm"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_eye"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rectangle_rounded_yellow"
+            android:onClick="daftar"
+            android:text="@string/sign_up"
+            android:textColor="@color/text"
+            android:textSize="20dp"
+            app:backgroundTint="@null" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="70dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/text"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_marginEnd="4dp"
+                android:text="@string/anda_sudah_mempunyai_akun"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue"
+                android:onClick="masuk"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="@string/masuk"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

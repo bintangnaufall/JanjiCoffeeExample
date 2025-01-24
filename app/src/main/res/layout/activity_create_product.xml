@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+    tools:context=".CreateProduct">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tambah Data Product"
+                android:gravity="center"
+                android:textColor="@color/text"
+                android:textSize="24dp"/>
+
+            <TextView
+                android:text="Nama Produk"
+                android:textColor="@color/text"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/namaProdukET"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Masukkan nama produk"
+                android:textColor="@color/text" />
+
+            <TextView
+                android:text="Deskripsi Produk"
+                android:textColor="@color/text"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/deskripsiET"
+                android:textColor="@color/text"
+                android:hint="Tuliskan deskripsi produk"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"/>
+
+            <TextView
+                android:text="Ukuran Yang Tersedia"
+                android:textColor="@color/text"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/regularCB"
+                    android:text="Regular"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/largeCB"
+                    android:text="Large"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/hargaRegularLL"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <TextView
+                    android:text="Harga Regular"
+                    android:textColor="@color/text"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:id="@+id/hargaRegularET"
+                    android:textColor="@color/text"
+                    android:hint="20.000"
+                    android:inputType="numberSigned"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/hargaLargeLL"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <TextView
+                    android:text="Harga Large"
+                    android:textColor="@color/text"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:id="@+id/hargaLargeET"
+                    android:textColor="@color/text"
+                    android:hint="20.000"
+                    android:inputType="numberSigned"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:text="Apakah produk ini termasuk dalam kategori rekomendasi"
+                android:textColor="@color/text"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="40dp"
+                    android:id="@+id/iyaRB"
+                    android:text="Iya"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tidakRB"
+                    android:text="Tidak"/>
+            </RadioGroup>
+
+            <TextView
+                android:text="Lama Waktu Pembuatan"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text"
+                android:layout_marginBottom="20dp"/>
+
+                <Button
+                    android:id="@+id/selectTimeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih Waktu"
+                    android:layout_marginLeft="10dp"
+                    android:onClick="selectTimeButton"
+                    android:layout_marginRight="10dp"/>
+
+
+            <TextView
+                android:text="Pilih Gambar Produk"
+                android:textColor="@color/text"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle_rounded_yellow"
+                    android:orientation="vertical"
+                    android:id="@+id/btnChoose"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/card_image"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/gray">
+                    <ImageView
+                        android:id="@+id/imgView"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_rounded_yellow"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp"
+                android:orientation="vertical"
+                android:onClick="SaveProduct"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text"
+                    android:text="Simpan"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

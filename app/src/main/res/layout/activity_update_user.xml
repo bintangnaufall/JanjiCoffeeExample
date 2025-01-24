@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+    tools:context=".UpdateUser">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Update Data User"
+                android:gravity="center"
+                android:textColor="@color/text"
+                android:textSize="24dp"/>
+
+            <TextView
+                android:text="Username"
+                android:textColor="@color/text"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/usernameET"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Masukkan Username"
+                android:textColor="@color/text" />
+
+            <TextView
+                android:text="Email"
+                android:textColor="@color/text"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/emailET"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Masukkan Email"
+                android:textColor="@color/text" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/labelPassword"
+                    android:text="@string/password"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text"
+                    android:layout_marginTop="10dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/passwordET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:paddingEnd="10dp"/>
+
+                    <ImageView
+                        android:id="@+id/eyeIcon"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_eye"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/labelPasswordKonfirmasi"
+                    android:text="@string/password"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text"
+                    android:layout_marginTop="10dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/passwordKonfirmasiET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text"
+                        android:hint="Password Konfirmasi"
+                        android:inputType="textPassword"
+                        android:paddingEnd="10dp"/>
+
+                    <ImageView
+                        android:id="@+id/eyeIconConfirm"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_eye"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/hargaRegularLL"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <TextView
+                    android:text="Harga Regular"
+                    android:textColor="@color/text"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:id="@+id/hargaRegularET"
+                    android:textColor="@color/text"
+                    android:hint="20.000"
+                    android:inputType="numberSigned"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/hargaLargeLL"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <TextView
+                    android:text="Harga Large"
+                    android:textColor="@color/text"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:id="@+id/hargaLargeET"
+                    android:textColor="@color/text"
+                    android:hint="20.000"
+                    android:inputType="numberSigned"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:text="Apakah akun ini termasuk admin?"
+                android:textColor="@color/text"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="40dp"
+                    android:id="@+id/iyaRB"
+                    android:text="Iya"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tidakRB"
+                    android:text="Tidak"/>
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_rounded_yellow"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp"
+                android:orientation="vertical"
+                android:onClick="UpdateUser"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text"
+                    android:text="Simpan"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".autentifikasi_activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="60dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/email_verif_icon"
+            android:layout_gravity="center"
+            android:layout_marginBottom="40dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email: example.com"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/text"
+            android:textSize="12dp"/>
+        <EditText
+            android:id="@+id/inputVerifikasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="Masukkan Kode OTP"
+            android:textColor="@color/text"
+            android:textSize="16sp"
+            android:backgroundTint="@color/golden_yellow" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/kirimUlang"
+            android:text="Kirim Ulang"
+            android:onClick="KirimUlang"
+            android:textColor="@color/text"
+            android:textSize="12dp"
+            android:layout_gravity="end"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="verifikasi"
+            android:text="Verifkasi"
+            android:backgroundTint="@color/light_coral"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

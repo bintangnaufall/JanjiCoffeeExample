@@ -1,0 +1,111 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rectangle_rounded_light_coral"
+    android:orientation="horizontal"
+    android:layout_marginBottom="20dp"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/productImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:scaleType="centerInside" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/productName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Produk"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/text"
+                android:paddingTop="5dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:background="@drawable/rectangle_rounded_yellow">
+                    <ImageView
+                        android:id="@+id/updateProduk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_horizontal"
+                        android:contentDescription="Opsi Lain"
+                        android:src="@drawable/pencil_squere" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:background="@drawable/rectangle_rounded_red">
+                    <ImageView
+                        android:id="@+id/deleteProduk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/trash"
+                        android:contentDescription="Opsi Lain"
+                        android:padding="10dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/productHarga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/text"
+                android:text="Rp.15.000"
+                android:paddingTop="5dp" />
+
+            <TextView
+                android:id="@+id/productUkuran"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text"
+                android:layout_marginRight="10dp"
+                android:text="R&amp;L"
+                android:paddingTop="5dp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/productRekommended"
+                android:visibility="gone"
+                android:background="@drawable/ic_star_fill"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/productDesk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text"
+            android:text="Deskripsi"
+            android:paddingTop="5dp" />
+    </LinearLayout>
+</LinearLayout>
