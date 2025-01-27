@@ -17,6 +17,9 @@
         android:theme="@style/Theme.UAS"
         tools:targetApi="31">
         <activity
+            android:name=".Activity_Menu"
+            android:exported="false" />
+        <activity
             android:name=".autentifikasi_activity"
             android:exported="false" />
         <activity

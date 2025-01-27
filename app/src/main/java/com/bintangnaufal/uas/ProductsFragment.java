@@ -107,10 +107,14 @@ public class ProductsFragment extends Fragment {
         SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("LoginSession", Context.MODE_PRIVATE);
         String email = sharedPreferences.getString("EMAIL", "Email tidak ditemukan");
         DatabaseHelper db = new DatabaseHelper(getActivity());
-        String username = db.getAdminUsername(email);
+        String username = db.getUsername(email);
 
 
-        tv.setText("Selamat Datang, " + username + "!");
+        if (username != null) {
+            tv.setText("Selamat Datang, " + username + "!");
+        }else {
+            tv.setText("Selamat Datang!");
+        }
 
         recyclerView = view.findViewById(R.id.productRecylerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

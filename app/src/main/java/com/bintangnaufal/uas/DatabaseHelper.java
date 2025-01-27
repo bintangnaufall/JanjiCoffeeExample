@@ -103,7 +103,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return exists;
     }
 
-    public String getAdminUsername(String email) {
+    public String getUsername(String email) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
         String query = "SELECT USERNAME FROM " + TABLE_USERS + " WHERE EMAIL = ?";
@@ -119,6 +119,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return username; // Null jika tidak ditemukan
     }
+    public Boolean isAdmin(String email) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        String query = "SELECT IS_ADMIN FROM " + TABLE_USERS + " WHERE EMAIL = ?";
+        Cursor cursor = sqLiteDatabase.rawQuery(query, new String[]{email});
+
+        Boolean is_admin = false; // Nilai default
+        if (cursor.moveToFirst()) { // Jika data ditemukan
+            is_admin = cursor.getInt(cursor.getColumnIndexOrThrow("IS_ADMIN")) == 1;
+        }
+
+        cursor.close();
+        sqLiteDatabase.close();
+
+        return is_admin;
+    }
+
 
 
     public boolean isEmailRegistered (String email) {
@@ -198,6 +215,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return productList;
     }
 
+    public List<Product> getAllProductsRecommended() {
+        List<Product> productList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // Query untuk mendapatkan data produk yang direkomendasikan
+        String query = "SELECT * FROM " + TABLE_PRODUCTS + " WHERE is_Rokomended = 1 ORDER BY id DESC";
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Product product = new Product();
+                product.setId(cursor.getInt(cursor.getColumnIndexOrThrow("ID")));
+                product.setNama(cursor.getString(cursor.getColumnIndexOrThrow("NamaProduk")));
+                product.setIsRecommended(cursor.getInt(cursor.getColumnIndexOrThrow("is_Rokomended")) == 1);
+                product.setIsRegular(cursor.getInt(cursor.getColumnIndexOrThrow("is_Regular")) == 1);
+                product.setisIsLarge(cursor.getInt(cursor.getColumnIndexOrThrow("is_Large")) == 1);
+                product.setHargaRegular(cursor.getString(cursor.getColumnIndexOrThrow("HargaRegular")));
+                product.setHargaLarge(cursor.getString(cursor.getColumnIndexOrThrow("HargaLarge")));
+                product.setDeskripsi(cursor.getString(cursor.getColumnIndexOrThrow("Deskripsi")));
+                product.setImagePath(cursor.getString(cursor.getColumnIndexOrThrow("ImagePath")));
+                product.setWaktu(cursor.getString(cursor.getColumnIndexOrThrow("Waktu")));
+                productList.add(product);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return productList;
+    }
 
 
     public void updateProduct(String id, String nama, Boolean rekomended, Boolean regular, Boolean large, String hargaregular, String hargelarge, String deskripsi, String imgPth, String waktu) {

@@ -38,11 +38,19 @@ public class MainActivity extends AppCompatActivity {
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             SharedPreferences sharedPreferences = getSharedPreferences("LoginSession", Context.MODE_PRIVATE);
-            String email = sharedPreferences.getString("EMAIL", null);
+            String email = sharedPreferences.getString("Email", null);
 
             if (email != null) {
-                Intent intent = new Intent(MainActivity.this, activity_adminpanel.class);
-                startActivity(intent);
+                DatabaseHelper db = new DatabaseHelper(this);
+                Boolean is_admin = db.isAdmin(email);
+
+                if (is_admin) {
+                    Intent intent = new Intent(MainActivity.this, activity_adminpanel.class);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(MainActivity.this, Activity_Menu.class);
+                    startActivity(intent);
+                }
             } else {
                 Intent intent = new Intent(MainActivity.this, activity_login.class);
                 startActivity(intent);

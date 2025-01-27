@@ -21,7 +21,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class autentifikasi_activity extends AppCompatActivity {
 
-    private TextView KU;
+    private TextView KU, em;
     private EditText inpVerif;
     private String otp;
     private SharedPreferences sharedPreferences;
@@ -33,10 +33,17 @@ public class autentifikasi_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_autentifikasi);
         KU = findViewById(R.id.kirimUlang);
+        em = findViewById(R.id.email);
         inpVerif = findViewById(R.id.inputVerifikasi);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("OTPSession", Context.MODE_PRIVATE);
+
+        String email = sharedPreferences.getString("EMAIL", null);
+        em.setText("Email : " + email);
     }
 
     public void verifikasi(View view) {
+        SharedPreferences sharedPreferences = getSharedPreferences("OTPSession", Context.MODE_PRIVATE);
         otp = sharedPreferences.getString("OTP", "OTP tidak ada");
         String username = sharedPreferences.getString("USERNAME", null);
         String email = sharedPreferences.getString("EMAIL", null);
@@ -98,8 +105,8 @@ public class autentifikasi_activity extends AppCompatActivity {
         new autentifikasi_activity.SendMailTask(result -> {
             if (result.equals("Email berhasil dikirim!")) {
                 Toast.makeText(this, "OTP terkirim ke email!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, autentifikasi_activity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(this, autentifikasi_activity.class);
+//                startActivity(intent);
             } else {
                 Toast.makeText(this, "Gagal mengirim OTP.", Toast.LENGTH_SHORT).show();
             }

@@ -1,5 +1,6 @@
 package com.bintangnaufal.uas;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -104,15 +105,22 @@ public class activity_daftar extends AppCompatActivity {
 
         DatabaseHelper user = new DatabaseHelper(this);
 
+        // Tampilkan loading spinner
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Sedang memproses...");
+        progressDialog.setCancelable(false); // Agar dialog tidak bisa ditutup secara manual
+        progressDialog.show();
+
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(confirmPassword) || TextUtils.isEmpty(username)) {
+            progressDialog.dismiss(); // Hentikan loading jika ada masalah
             Toast.makeText(this, "Mohon lengkapi semua kolom yang tersedia.", Toast.LENGTH_SHORT).show();
         } else if (!password.equals(confirmPassword)) {
+            progressDialog.dismiss(); // Hentikan loading jika ada masalah
             Toast.makeText(this, "Harap pastikan password dan konfirmasi password Anda sama.", Toast.LENGTH_SHORT).show();
-        }else if (user.isEmailRegistered(email)) {
+        } else if (user.isEmailRegistered(email)) {
+            progressDialog.dismiss(); // Hentikan loading jika ada masalah
             Toast.makeText(this, "Akun dengan email ini sudah terdaftar.", Toast.LENGTH_SHORT).show();
-        }else {
-//            DatabaseHelper databaseHelper = new DatabaseHelper(this);
-//            databaseHelper.createUser(username, email, password, false);
+        } else {
             String otp = OTPGenerator.generateOTP(6);
             String subject = "Kode OTP Anda";
             String messageBody = "Kode OTP Anda adalah: " + otp;
@@ -125,7 +133,9 @@ public class activity_daftar extends AppCompatActivity {
             editor.putString("PASSWORD", password);
             editor.apply();
 
+            // Kirim email OTP dengan loading aktif
             new SendMailTask(result -> {
+                progressDialog.dismiss(); // Hentikan loading setelah proses selesai
                 if (result.equals("Email berhasil dikirim!")) {
                     Toast.makeText(this, "OTP terkirim ke email!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, autentifikasi_activity.class);
@@ -136,4 +146,5 @@ public class activity_daftar extends AppCompatActivity {
             }).execute(email, subject, messageBody);
         }
     }
+
 }

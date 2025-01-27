@@ -55,7 +55,7 @@ public class activity_login extends AppCompatActivity {
 
             SharedPreferences sharedPreferences = getSharedPreferences("LoginSession", MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("EMAIL", emailEditText.getText().toString());
+            editor.putString("Email", emailEditText.getText().toString());
             editor.apply();
 
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -71,10 +71,13 @@ public class activity_login extends AppCompatActivity {
                 editor.apply();
 
             } else if (users.isValidUser(emailEditText.getText().toString(), passwordEditText.getText().toString())) {
-//                SharedPreferences sharedPreferences = getSharedPreferences("LoginSession", MODE_PRIVATE);
-//                SharedPreferences.Editor editor = sharedPreferences.edit();
-//                editor.putString("EMAIL", emailEditText.getText().toString());
-//                editor.apply();
+                Intent intent = new Intent(this, Activity_Menu.class);
+                startActivity(intent);
+
+                SharedPreferences sharedPreferences = getSharedPreferences("LoginSession", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("Email", emailEditText.getText().toString());
+                editor.apply();
             }else {
                 Toast.makeText(this, "Email atau Password anda salah", Toast.LENGTH_SHORT).show();
             }
