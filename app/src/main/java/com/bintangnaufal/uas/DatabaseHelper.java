@@ -188,7 +188,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         // Query untuk mendapatkan data dengan urutan ID dari yang terbesar ke terkecil
-        String query = "SELECT * FROM products ORDER BY id DESC";
+        String query = "SELECT * FROM products WHERE is_Rokomended = 0 ORDER BY id DESC";
 
         Cursor cursor = db.rawQuery(query, null);
 

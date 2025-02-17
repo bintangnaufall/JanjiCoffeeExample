@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,14 +25,13 @@ public class Activity_Menu extends AppCompatActivity {
 
     RecyclerView recyclerViewR;
     MenuAdapter MenuAdapter;
-    private List<Product> productList;
+    AllMenuAdapter allMenuAdapter;
+    private List<Product> productList, allProductList;
     private TextView nameUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
-//        2.recyclerview recomended belum tampil
 
         recyclerViewR = findViewById(R.id.menuRecomended);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -42,6 +42,19 @@ public class Activity_Menu extends AppCompatActivity {
 
         MenuAdapter = new MenuAdapter(this, productList);
         recyclerViewR.setAdapter(MenuAdapter);
+
+
+        RecyclerView recyclerView = findViewById(R.id.allMenu);
+        GridLayoutManager GlayoutManager = new GridLayoutManager(this, 3);
+        GlayoutManager.setAutoMeasureEnabled(true);
+        recyclerView.setLayoutManager(GlayoutManager);
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setHasFixedSize(false);
+
+        allProductList = databaseHelper.getAllProducts();
+
+        allMenuAdapter = new AllMenuAdapter(this, allProductList);
+        recyclerView.setAdapter(allMenuAdapter);
     }
 
     public void logout(View view) {

@@ -38,7 +38,7 @@ import java.util.List;
 public class ProductsFragment extends Fragment {
 
     private TextView tv;
-    private LinearLayout logoutIV;
+    private LinearLayout  logoutIV;
     private FloatingActionButton buttonFAB;
     private RecyclerView recyclerView;
     private ProductAdapter adapter;
